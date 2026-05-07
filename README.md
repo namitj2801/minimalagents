@@ -77,6 +77,7 @@ Some of the provided tools include:
 - `PythonREPL` for executing Python code
 - calculator and translation utilities
 - email sending, web search, and image generation helpers
+- GitHub documentation generation for automated codebase docs
 - file readers and PDF extraction tools
 
 You can also implement your own tool by subclassing `minimal_agents.tools.base.Tool`.
@@ -98,6 +99,8 @@ class WeatherTool(Tool):
 ## Examples
 
 See `minimal_agents/examples/simple_agent.py` and `minimal_agents/examples/simple_groq_agent.py` for runnable agent examples.
+
+Both examples now include a `GitHub Documentation Generator` tool that can automatically produce Markdown documentation for the project.
 
 ## Project structure
 
