@@ -78,6 +78,8 @@ Some of the provided tools include:
 - calculator and translation utilities
 - email sending, web search, and image generation helpers
 - GitHub documentation generation for automated codebase docs
+- natural-language database query translation to SQL or MongoDB
+- email reply drafting from incoming email text
 - file readers and PDF extraction tools
 
 You can also implement your own tool by subclassing `minimal_agents.tools.base.Tool`.
@@ -100,7 +102,27 @@ class WeatherTool(Tool):
 
 See `minimal_agents/examples/simple_agent.py` and `minimal_agents/examples/simple_groq_agent.py` for runnable agent examples.
 
-Both examples now include a `GitHub Documentation Generator` tool that can automatically produce Markdown documentation for the project.
+Both examples now include these utility tools:
+
+- `GitHub Documentation Generator` for automated project documentation
+- `Database Query Translator` for natural language to SQL/MongoDB query drafts
+- `Email Response Tool` for drafting replies from email content
+- `Send Email`, `Weather Tool`, `Translation Tool`, and `Image Generation Tool`
+
+### Tool input examples
+
+```text
+GitHub Documentation Generator:
+{'repo_path':'.','output_file':'minimal_agents/examples/codebase_docs.md','focus_paths':['minimal_agents/examples/simple_agent.py']}
+
+Database Query Translator:
+{'database':'sql','action':'find active users','table':'users','condition':'is_active = 1','limit':20}
+{'database':'mongodb','action':'update premium users','collection':'users','condition':{'plan':'pro'},'values':{'tier':'premium'}}
+
+Email Response Tool:
+reply to meeting reschedule || Hi, can we move tomorrow's meeting to 4 PM?
+{'intent':'confirm and share next steps','email':'Please send invoice by Friday','tone':'formal','sender_name':'Priya','signature_name':'Namit'}
+```
 
 ## Project structure
 
